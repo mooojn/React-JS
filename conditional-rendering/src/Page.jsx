@@ -5,5 +5,8 @@ function Page(props){
 
     return props.isLoggedIn ? welcome_msg : log_in_msg;
 }
-
+Page.defaultProps = {
+    isLoggedIn: false,
+    userName: "Guest",
+};
 export default Page;
