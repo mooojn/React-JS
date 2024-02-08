@@ -1,7 +1,10 @@
+import Page from './Page.jsx'
 
 function App(){
   return (
-    <div>App</div>
+    <>
+      <Page isLoggedIn={true} userName="Moon"/> 
+    </>
   );
 }
 
