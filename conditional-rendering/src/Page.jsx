@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 function Page(props){
     const welcome_msg = <p className="welcome-msg">Welcome {props.userName}</p>;
@@ -5,6 +6,14 @@ function Page(props){
 
     return props.isLoggedIn ? welcome_msg : log_in_msg;
 }
+
+// prop-types
+Page.propTypes = {
+    isLoggedIn: PropTypes.bool,
+    userName: PropTypes.string,
+};
+
+// default props
 Page.defaultProps = {
     isLoggedIn: false,
     userName: "Guest",
