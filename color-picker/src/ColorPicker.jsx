@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import copySound from './assets/copyFx.mp3'
 
 function ColorPicker(){
-    const [color, setColor] = useState("#ffffff");
+    const [color, setColor] = useState("#a00808");
 
     function col(event){
         setColor(event.target.value);
@@ -27,8 +27,8 @@ function ColorPicker(){
             
             <div className="cont">
                 <h1>Color Picker</h1>
-                <div className="col" style={{backgroundColor: color}}>
-                    <p onClick={copy}>{color}</p>
+                <div onClick={copy} className="col" style={{backgroundColor: color}}>
+                    <p>{color}</p>
                 </div>
                 <input type="color" value={color} onChange={col}/>
             </div>
