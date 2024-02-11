@@ -1,16 +1,37 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import copySound from './assets/copyFx.mp3'
 
 function ColorPicker(){
-    const [color, setColor] = useState("#fffff");
+    const [color, setColor] = useState("#ffffff");
 
     function col(event){
         setColor(event.target.value);
     }
+    function copy(event){
+        // copying
+        navigator.clipboard.writeText(event.target.innerText);
+        // msg display
+        toast("Copied!",{
+            className: 'toasty',
+            autoClose: 1000,
+        });
+        // sound FX
+        new Audio(copySound).play();
+    }
+
     return(
         <>
-            <h1>Color Picker</h1>
-            <p style={{backgroundColor: color}}>{color}</p>
-            <input type="color" value={color} onChange={col}/>
+            <ToastContainer />
+            
+            <div className="cont">
+                <h1>Color Picker</h1>
+                <div className="col" style={{backgroundColor: color}}>
+                    <p onClick={copy}>{color}</p>
+                </div>
+                <input type="color" value={color} onChange={col}/>
+            </div>
         </>
     );
 }
